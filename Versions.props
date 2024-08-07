@@ -1,0 +1,25 @@
+<Project>
+  <PropertyGroup>
+    <SystemThreadingTasksExtensionsVersion>4.5.4</SystemThreadingTasksExtensionsVersion>
+
+    <!--
+      Build, Test, Code Analysis
+    -->
+    <!-- Note: v3.10.0+ causes: src\Utf8Json.UniversalCodeGenerator\CodeAnalysis\TypeCollector.cs(206,32,206,58): warning RS1024: Compare symbols correctly -->
+    <MicrosoftCodeAnalysisCSharpWorkspacesVersion>4.10.0</MicrosoftCodeAnalysisCSharpWorkspacesVersion>
+    <MicrosoftNETTestSdkVersion>17.10.0</MicrosoftNETTestSdkVersion>
+    <!-- Note: Cannot use 2.4.0+, unless https://github.com/xunit/xunit/issues/1771 is fixed -->
+    <XUnitVersion>2.9.0</XUnitVersion>
+
+    <!--
+      Benchmark
+    -->
+    <BenchmarkDotNetVersion>0.14.0</BenchmarkDotNetVersion>
+    <JilVersion>2.17.0</JilVersion>
+    <Version></Version>
+    <MessagePackVersion>2.5.172</MessagePackVersion>
+    <NetJSONVersion>1.4.4</NetJSONVersion>
+    <NewtonsoftJsonVersion>13.0.3</NewtonsoftJsonVersion>
+    <ProtobufNetVersion>3.2.30</ProtobufNetVersion>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,82 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1</TargetFrameworks>
+        <Configurations>Debug;Release;</Configurations>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>opensource.snk</AssemblyOriginatorKeyFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <LangVersion>8</LangVersion>
+        <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+        <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <LangVersion>8</LangVersion>
+        <PackageId>Utf8Json.NET8</PackageId>
+        <Title>Utf8Json</Title>
+        <Description>Definitely Fastest and Zero Allocation JSON Serializer for C#(NET, .NET Core, Unity, Xamarin).</Description>
+        <IsPackable>true</IsPackable>
+        <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+        <NoWarn>1701;1702;1705;1591</NoWarn>
+        <DocumentationFile>bin\Release\$(TargetFramework)\Utf8Json.xml</DocumentationFile>
+        <DefineConstants>RELEASE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <None Remove="*.meta" />
+        <None Remove="Resolvers\*.meta" />
+        <None Remove="Internal\*.meta" />
+        <None Remove="Formatters\*.meta" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="Formatters\PrimitiveFormatter.tt">
+            <Generator>TextTemplatingFileGenerator</Generator>
+            <LastGenOutput>PrimitiveFormatter.cs</LastGenOutput>
+        </None>
+        <None Update="Formatters\ValueTupleFormatter.tt">
+            <LastGenOutput>ValueTupleFormatter.cs</LastGenOutput>
+            <Generator>TextTemplatingFileGenerator</Generator>
+        </None>
+        <None Update="Formatters\TupleFormatter.tt">
+            <Generator>TextTemplatingFileGenerator</Generator>
+            <LastGenOutput>TupleFormatter.cs</LastGenOutput>
+        </None>
+        <None Update="Internal\UnsafeMemory.tt">
+            <Generator>TextTemplatingFileGenerator</Generator>
+            <LastGenOutput>UnsafeMemory.cs</LastGenOutput>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="Formatters\PrimitiveFormatter.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>PrimitiveFormatter.tt</DependentUpon>
+        </Compile>
+        <Compile Update="Formatters\TupleFormatter.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>TupleFormatter.tt</DependentUpon>
+        </Compile>
+        <Compile Update="Formatters\ValueTupleFormatter.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>ValueTupleFormatter.tt</DependentUpon>
+        </Compile>
+        <Compile Update="Internal\UnsafeMemory.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>UnsafeMemory.tt</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+</Project>

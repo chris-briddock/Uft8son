@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1</TargetFrameworks>
+        <PackageId>Utf8Json.AspNetCoreMvcFormatter.NET8</PackageId>
+        <Title>Utf8Json AspNetCoreMvcFormatter</Title>
+        <Description>Utf8Json ASP.NET Core Mvc Input/Output Formatter.</Description>
+        <PackageTags>$(PackageTags), ASPNET</PackageTags>
+        <IsPackable>true</IsPackable>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>opensource.snk</AssemblyOriginatorKeyFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="$(MicrosoftAspNetCoreMvcAbstractionsVersion)" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Utf8Json\Utf8Json.csproj" />
+    </ItemGroup>
+
+</Project>
