@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using Utf8Json.Internal;
 using Utf8Json.Resolvers;
@@ -162,6 +163,14 @@ namespace Utf8Json
         /// Serialize to JsonString.
         /// </summary>
         public static string ToJsonString<T>(T value)
+        {
+            return ToJsonString(value, defaultResolver);
+        }
+
+        /// <summary>
+        /// Serialize to JsonString
+        /// </summary>
+        public static string ToJsonString<T>(this HttpResponseMessage message, T value)
         {
             return ToJsonString(value, defaultResolver);
         }
